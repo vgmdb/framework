@@ -1,0 +1,4 @@
+framework
+=========
+
+The VGMdb Framework.
