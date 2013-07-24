@@ -1,0 +1,14 @@
+# The Monolog service implements a PSR-3 compliant logger.
+#
+# The logger object is exposed as $app['logger'], and is injected into multiple core services.
+# The default behaviour is to write to ChromePHP. If you have a compatible plugin installed on
+# your browser, you can view the log output in the console.
+
+services:
+    monolog:
+        provider: VGMdb\Component\Monolog\MonologServiceProvider
+        name: vgmdb
+        handlers:
+            firephp:   false
+            chromephp: false
+        #logfile: %app.log_dir%/debug.log

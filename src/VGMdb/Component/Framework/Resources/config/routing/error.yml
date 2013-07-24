@@ -1,0 +1,15 @@
+error_404:
+    path: /error/404
+    defaults:
+        _controller: framework.controller.exception
+        _view: @Framework/exception/404
+    options:
+        _translate: false
+
+error_500:
+    path: /error/500
+    defaults:
+        _controller: framework.controller.exception
+        _view: @Framework/exception/500
+    options:
+        _translate: false

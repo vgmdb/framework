@@ -1,0 +1,12 @@
+# Propel2 database abstraction layer and ORM.
+
+services:
+    propel:
+        provider: VGMdb\Component\Propel\PropelServiceProvider
+        options:
+            dbal:
+                default_connection: %app.name%.%app.env%
+                connections: []
+        connection_class: %propel.connection_class%
+        instance_pooling: false
+        force_master_connection: true

@@ -1,0 +1,51 @@
+# Register the OAuth client provider which provides integration points with external oauth platforms
+# like Facebook, Twitter and Google.
+#
+# This should go AFTER SecurityServiceProvider, since the /auth/check route needs to take precedence.
+
+services:
+    oauth:
+        provider: VGMdb\Component\OAuth\OAuthServiceProvider
+        path: /auth
+        firewall_name: master
+        config:
+            callback_url: /auth/callback
+            callback_transport: session
+            security_salt: %oauth.salt%
+        credentials:
+            facebook:
+                key:      %oauth.strategy.facebook.key%
+                secret:   %oauth.strategy.facebook.secret%
+                callback: %oauth.strategy.facebook.callback%
+                scope:    []
+            twitter:
+                key:      %oauth.strategy.twitter.key%
+                secret:   %oauth.strategy.twitter.secret%
+                callback: %oauth.strategy.twitter.callback%
+                scope:    []
+            google:
+                key:      %oauth.strategy.google.key%
+                secret:   %oauth.strategy.google.secret%
+                callback: %oauth.strategy.google.callback%
+                scope:
+                    - "https://www.googleapis.com/auth/userinfo.email"
+                    - "https://www.googleapis.com/auth/userinfo.profile"
+        userinfo:
+            facebook:
+                uri: "https://graph.facebook.com/me"
+                fields:
+                    id:    id
+                    name:  username
+                    email: email
+            twitter:
+                uri: "https://api.twitter.com/1.1/account/verify_credentials.json"
+                fields:
+                    id:    id
+                    name:  screen_name
+                    email: ~
+            google:
+                uri: "https://www.googleapis.com/oauth2/v1/userinfo"
+                fields:
+                    id:    id
+                    name:  name
+                    email: email

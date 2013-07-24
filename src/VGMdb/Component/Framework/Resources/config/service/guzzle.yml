@@ -1,0 +1,9 @@
+# Integrates the Guzzle library, which wraps cURL for making webservice calls.
+#
+# You can attach plugins to Guzzle for special protocols, such as signing API requests with
+# HMAC credentials or bearer tokens.
+
+services:
+    guzzle:
+        provider: VGMdb\Component\Guzzle\GuzzleServiceProvider
+        base_url: %guzzle.base_url%

@@ -1,0 +1,28 @@
+# Secures the application with a firewall that implements user authentication and authorization flow.
+#
+# Firewall routes are ordered by specificity since it stops at the first match. The master firewall
+# is a catch-all that covers all remaining routes.
+
+services:
+    security:
+        provider: VGMdb\Component\Security\SecurityServiceProvider
+        firewalls:
+            debug:
+                pattern: ^/debug
+                security: false
+        access_rules:
+            - [ ^/admin, ROLE_ADMIN ]
+            - [ ^/auth, ROLE_USER ]
+        role_hierarchy:
+            ROLE_ADMIN: [ ROLE_USER, ROLE_ALLOWED_TO_SWITCH ]
+            ROLE_SUPER_ADMIN: [ ROLE_ADMIN ]
+        secure_random.seed: %app.cache_dir%/secure_random.seed
+        bcrypt.work_factor: 15
+        xss_protection:
+            mode: block
+        frame_options:
+            paths:
+                '^/.*': SAMEORIGIN
+        transport_security:
+            max_age: 2592000
+            subdomains: []

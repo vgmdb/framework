@@ -1,0 +1,47 @@
+parameters:
+    app.version: 1.0
+    app.locales: en|ja|zh
+    app.locale:  en
+
+    app.hosts.web.host:   ~
+    app.hosts.web.scheme: http
+
+    locale.locale_fallback: en
+
+    assetic.auto_dump_assets: false
+
+    propel.connection_class: ~
+
+    propel1.connection_class: ~
+
+    guzzle.base_url: ~
+
+    thrift.host: ~
+    thrift.port: 80
+    thrift.uri:  ~
+
+    form.secret: ~
+
+    user.security.bcrypt.work_factor: 15
+    user.security.reset_ttl: 300
+
+    swiftmailer.host:       localhost
+    swiftmailer.port:       25
+    swiftmailer.username:   ~
+    swiftmailer.password:   ~
+    swiftmailer.encryption: ~
+    swiftmailer.auth_mode:  ~
+
+    oauth.salt:                       ~
+    oauth.strategy.facebook.key:      ~
+    oauth.strategy.facebook.secret:   ~
+    oauth.strategy.facebook.callback: ~
+    oauth.strategy.twitter.key:       ~
+    oauth.strategy.twitter.secret:    ~
+    oauth.strategy.twitter.callback:  ~
+    oauth.strategy.google.key:        ~
+    oauth.strategy.google.secret:     ~
+    oauth.strategy.google.callback:   ~
+
+    newrelic.api_key:  ~
+    newrelic.apps.web: VGMdb

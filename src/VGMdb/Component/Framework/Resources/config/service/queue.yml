@@ -1,0 +1,7 @@
+# Provides a generic interface to queueing implementations.
+# Configurations are stored in queues_base.yml
+
+services:
+    queue:
+        provider: VGMdb\Component\Queue\QueueServiceProvider
+        configs: []

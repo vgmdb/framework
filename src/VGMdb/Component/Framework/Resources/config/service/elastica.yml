@@ -1,0 +1,10 @@
+# The ElasticSearch search engine, registers $app['elastica'].
+
+services:
+    elastica:
+        provider: VGMdb\Component\Elastica\ElasticaServiceProvider
+        options:
+            connections:
+                - { host: %elastica.host%, port: 9200 }
+            indices:
+                listings: %elastica.indices.listings%

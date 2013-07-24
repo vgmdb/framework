@@ -1,0 +1,19 @@
+# Doctrine database abstraction layer and ORM.
+#
+# Registers $app['entity_manager'] which is the data mapper service. Also provides
+# $app['doctrine'] which is the central registry for all entity managers and connections.
+
+services:
+    doctrine:
+        provider: VGMdb\Component\Doctrine\DoctrineServiceProvider
+        dbs.options: []
+        dbal.default_connection: %app.name%.%app.env%
+        #dbal.logfile: %app.log_dir%/query.log
+        orm.cache_dir: %app.cache_dir%/annotations
+        orm.entity_dir: %app.base_dir%/src/VGMdb/Model/Entity
+        orm.proxy_dir: %app.cache_dir%/proxies
+        orm.proxy_namespace: VGMdb\Model\Proxy
+        orm.entity_managers:
+            default:
+                connection: %app.name%.%app.env%
+        orm.default_entity_manager: default

@@ -1,0 +1,8 @@
+# Development config
+
+imports:
+    - { resource: parameters.dev.yml }
+    - { resource: parameters.yml }
+    - { resource: services.dist.yml }
+    - { resource: services.dev.yml }
+    - { resource: services.yml }

@@ -1,0 +1,23 @@
+# The translation service manages the extracting, writing and loading of translation files in
+# various formats. It can extract strings from PHP files, Mustache templates and routing YAML
+# configuration while preserving metadata such as annotated descriptions and source files.
+#
+# Registers $app['translator'] which can be used as a template helper.
+
+services:
+    translator:
+        provider: VGMdb\Component\Translation\TranslationServiceProvider
+        locale_fallback: en
+        cache_dir: %app.cache_dir%/translations
+        base_dir: %app.base_dir%/app/Resources/translations
+        extractor.base_dir: %app.base_dir%
+        extractor.classes:
+            mustache: VGMdb\Component\Translation\Extractor\MustacheExtractor
+            php: VGMdb\Component\Translation\Extractor\PhpExtractor
+        loader.classes:
+            pofile: Symfony\Component\Translation\Loader\PoFileLoader
+            xliff: VGMdb\Component\Translation\Loader\XliffFileLoader
+        writer.classes:
+            pofile: Symfony\Component\Translation\Dumper\PoFileDumper
+            xliff: VGMdb\Component\Translation\Dumper\XliffFileDumper
+            json: VGMdb\Component\Translation\Dumper\JsonFileDumper

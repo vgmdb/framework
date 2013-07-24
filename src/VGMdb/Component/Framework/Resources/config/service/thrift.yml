@@ -1,0 +1,12 @@
+# The Apache Thrift service integrates the thrift library, which provides a code generator
+# mechanism for remote procedure calls based on a language agnostic interface definition.
+
+services:
+    thrift:
+        provider: VGMdb\Component\Thrift\ThriftServiceProvider
+        host: %thrift.host%
+        port: %thrift.port%
+        uri: %thrift.uri%
+        handler_namespace: VGMdb\Thrift\Handler
+        gen_dirs:
+            VGMdb\Model\Thrift: %app.base_dir%/src

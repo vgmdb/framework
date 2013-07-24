@@ -1,0 +1,6 @@
+# Staging config
+
+imports:
+    - { resource: parameters.yml }
+    - { resource: services.dist.yml }
+    - { resource: services.yml }

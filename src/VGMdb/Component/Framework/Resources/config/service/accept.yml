@@ -1,0 +1,19 @@
+# The format negotiator intercepts the request and resolves the appropriate response format.
+#
+# Decisions are based on order of priority in the Accept HTTP header. However, if prefer_extension
+# is specified, any whitelisted extension appearing in the URI will take priority. The resolved
+# format is accessible through Request::getRequestFormat().
+#
+# The version attribute is also parsed from the Accept header in the same manner. It is accessible
+# through Request::getVersion().
+#
+# Returns 406 Not Acceptable if no match or fallback is found.
+
+services:
+    accept:
+        provider: VGMdb\Component\HttpFoundation\FormatNegotiatorProvider
+        format.priorities: [ html, json, xml, js, thrift, qrcode, */* ]
+        format.fallback: html
+        format.prefer_extension: true
+        format.default_version: %app.version%
+        subdomains: [ api ]

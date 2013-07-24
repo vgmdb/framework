@@ -1,0 +1,27 @@
+# Register the OAuth client provider (Opauth) which provides integration points with external oauth
+# platforms like Facebook, Twitter and Google.
+#
+# This should go AFTER SecurityServiceProvider, since the /auth/check route needs to take precedence.
+
+services:
+    opauth:
+        provider: VGMdb\Component\Opauth\OpauthServiceProvider
+        path: /auth
+        firewall_name: master
+        config:
+            callback_url: /auth/callback
+            callback_transport: session
+            security_salt: %oauth.salt%
+            Strategy:
+                Facebook:
+                    app_id:         %oauth.strategy.facebook.key%
+                    app_secret:     %oauth.strategy.facebook.secret%
+                    redirect_uri:   %oauth.strategy.facebook.uri%
+                Twitter:
+                    key:            %oauth.strategy.twitter.key%
+                    secret:         %oauth.strategy.twitter.secret%
+                    oauth_callback: %oauth.strategy.twitter.uri%
+                Google:
+                    client_id:      %oauth.strategy.google.key%
+                    client_secret:  %oauth.strategy.google.secret%
+                    redirect_uri:   %oauth.strategy.google.uri%

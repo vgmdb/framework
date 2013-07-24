@@ -1,0 +1,30 @@
+imports:
+    - { resource: service/debug.yml }
+    - { resource: service/profiler.yml }
+
+services:
+    routing:
+        paths: %app.base_dir%/app/Resources/config/routing.dev.yml
+    monolog:
+        handlers:
+            chromephp: true
+    profiler:
+        priorities:
+            config:      255
+            request:     255
+            exception:   -1
+            events:      -1
+            logger:      -1
+            time:        255
+            memory:      255
+            router:      -1
+            security:    -1
+            container:   -1
+            classloader: -1
+            view:        -1
+            doctrine:    255
+            propel1:     255
+            guzzle:      -1
+            swiftmailer: -1
+            elastica:    -1
+            zuora:       -1

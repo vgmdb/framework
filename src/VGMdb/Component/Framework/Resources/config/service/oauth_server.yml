@@ -1,0 +1,11 @@
+# OAuth 2.0 Server provider. Implements the functionality of an oauth platform, including client
+# registration, authentication and token generation.
+
+services:
+    oauth_server:
+        provider: VGMdb\Component\OAuthServer\OAuthServerServiceProvider
+        client.class:        VGMdb\Model\Entity\Client
+        access_token.class:  VGMdb\Model\Entity\AccessToken
+        refresh_token.class: VGMdb\Model\Entity\RefreshToken
+        auth_code.class:     VGMdb\Model\Entity\AuthCode
+        signature.class:     ~

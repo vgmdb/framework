@@ -1,0 +1,14 @@
+# The session service defines the storage adapter for user sessions.
+#
+# If the Redis extension is detected, it will attempt to write to a Redis server. Otherwise
+# it will write to disk using the provided save_path.
+
+services:
+    session:
+        provider: VGMdb\Component\HttpFoundation\SessionServiceProvider
+        storage.save_path: %app.cache_dir%/sessions
+        storage.options:
+            entropy_length: 512
+            hash_bits_per_character: 5
+            hash_function: sha512
+            name: sid

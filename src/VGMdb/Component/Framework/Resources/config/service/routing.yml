@@ -1,0 +1,21 @@
+# Routing configuration and caching provider. Extends Silex with the ability to declare and
+# load route attributes and requirements from YAML files.
+#
+# Replacement values supplied through `routing.parameters` will be inserted into placeholders
+# encased with percentage signs, like `%domain%`.
+
+services:
+    routing:
+        provider: VGMdb\Component\Routing\RoutingServiceProvider
+        debug: %app.debug%
+        resource: %app.base_dir%/app/Resources
+        paths: %app.base_dir%/app/Resources/config/routing.yml
+        cache_dir: %app.cache_dir%/configs
+        generator_cache_class: %app.name%-%app.env%-UrlGenerator
+        matcher_cache_class: %app.name%-%app.env%-UrlMatcher
+        methods_cache_class: %app.name%-%app.env%-UrlMethods
+        parameters: []
+        translation.locales: %app.locales%
+        translation.locale: %app.locale%
+        translation.strategy: prefix_except_default
+        translation.cache_dir: %app.cache_dir%

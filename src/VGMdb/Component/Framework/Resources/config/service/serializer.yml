@@ -1,0 +1,11 @@
+# The Serializer library provides tools to convert objects to various serialization formats
+# (JSON, XML, YAML) and vice-versa.
+
+services:
+    serializer:
+        provider: VGMdb\Component\Serializer\SerializerServiceProvider
+        src_dir: %app.base_dir%/vendor/jms/serializer/src
+        cache_dir: %app.cache_dir%/metadata
+        base_cache_dir: %app.cache_dir%
+        config_dirs: { "": %app.base_dir%/app/Resources/config/serializer }
+        version: %app.version%

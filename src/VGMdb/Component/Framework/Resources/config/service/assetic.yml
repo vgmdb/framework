@@ -1,0 +1,20 @@
+# The Assetic asset manager filters and aggregates static frontend dependencies.
+#
+# This provider is not enabled in production, instead the assetic:minify console
+# command is executed upon deployment to pre-compile all files.
+
+services:
+    assetic:
+        provider: VGMdb\Component\Assetic\AsseticServiceProvider
+        options:
+            debug: %app.debug%
+            formulae_cache_dir: %app.cache_dir%/assets
+            auto_dump_assets: %assetic.auto_dump_assets%
+        web_path: %app.base_dir%/public
+        filters:
+            yui_css:
+                - Assetic\Filter\Yui\CssCompressorFilter
+                - [ %app.base_dir%/vendor/nervo/yuicompressor/yuicompressor.jar, %assetic.java_path% ]
+            yui_js:
+                - Assetic\Filter\Yui\JsCompressorFilter
+                - [ %app.base_dir%/vendor/nervo/yuicompressor/yuicompressor.jar, %assetic.java_path% ]

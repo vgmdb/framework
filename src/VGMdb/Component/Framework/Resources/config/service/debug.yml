@@ -1,0 +1,8 @@
+# The Debugger service overrides the core components of the framework to provide debugging and
+# timing information. It makes extensive use of the Symfony2 Stopwatch component.
+#
+# Both the debugger and profiler can be turned on and off in the application YAML configuration.
+
+services:
+    debug:
+        provider: VGMdb\Component\HttpKernel\DebuggerServiceProvider

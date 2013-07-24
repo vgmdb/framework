@@ -1,0 +1,17 @@
+# Base config
+
+imports:
+    - { resource: parameters.dist.yml }
+    - { resource: config.%app.env%.yml }
+    - { resource: databases.dist.yml }
+    - { resource: databases.yml }
+    - { resource: queues.dist.yml }
+    - { resource: queues.yml }
+    - { resource: config.yml }
+
+locale: %app.locale%
+locale_fallback: %locale.locale_fallback%
+
+app.hosts:
+    web.host:   %app.hosts.web.host%
+    web.scheme: %app.hosts.web.scheme%

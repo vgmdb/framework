@@ -1,0 +1,12 @@
+# Queue parameters
+
+# default connection
+app.queue:
+    provider: AmazonSQS
+    url:      ~
+    key:      ~
+    secret:   ~
+    region:   ~
+
+# overrides
+app.queues: []

@@ -1,0 +1,7 @@
+# The view service implements an engine agnostic view templating system.
+# Provides $app['view'] and $app['widget'] as view factories.
+
+services:
+    view:
+        provider: VGMdb\Component\View\ViewServiceProvider
+        default_engine: mustache

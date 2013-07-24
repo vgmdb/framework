@@ -1,0 +1,16 @@
+# Database parameters
+
+# default connection
+app.database:
+    driver:   mysql
+    host:     127.0.0.1
+    port:     3306
+    dbname:   ~
+    user:     ~
+    password: ~
+    charset:  UTF8
+    path:     ~
+    memory:   ~
+
+# overrides
+app.databases: []

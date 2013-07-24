@@ -1,0 +1,9 @@
+# Provides form templating and handling services.
+#
+# Make sure to register this before any template rendering services for the ability to
+# override the default PHP form rendering engine.
+
+services:
+    form:
+        provider: VGMdb\Component\Form\FormServiceProvider
+        secret: %form.secret%

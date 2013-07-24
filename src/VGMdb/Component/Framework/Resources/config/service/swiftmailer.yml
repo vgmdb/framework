@@ -1,0 +1,12 @@
+# Mailer service.
+
+services:
+    swiftmailer:
+        provider: VGMdb\Component\Swiftmailer\SwiftmailerServiceProvider
+        options:
+            host: %swiftmailer.host%
+            port: %swiftmailer.port%
+            username: %swiftmailer.username%
+            password: %swiftmailer.password%
+            encryption: %swiftmailer.encryption%
+            auth_mode: %swiftmailer.auth_mode%

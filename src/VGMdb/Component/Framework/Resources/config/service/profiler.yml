@@ -1,0 +1,33 @@
+# The Symfony2 profiler compiles debug information and provides a front-end browsing interface.
+# This must always be placed at the end, since it requires DebuggerServiceProvider to function.
+#
+# You can turn on and off individual components of the profiler to avoid collecting too much data
+# and slowing down performance. This can be done by setting the component priority to -1 in the
+# YAML configuration, under `profiler.options`.
+
+services:
+    profiler:
+        provider: VGMdb\Component\WebProfiler\WebProfilerServiceProvider
+        storage.dsn: "sqlite:%app.cache_dir%/profiler.db"
+        storage.username: ~
+        storage.password: ~
+        storage.lifetime: 86400
+        priorities:
+            config:      -1
+            request:     -1
+            exception:   -1
+            events:      -1
+            logger:      -1
+            time:        -1
+            memory:      -1
+            router:      -1
+            security:    -1
+            container:   -1
+            classloader: -1
+            view:        -1
+            doctrine:    -1
+            propel1:     -1
+            guzzle:      -1
+            swiftmailer: -1
+            elastica:    -1
+            zuora:       -1

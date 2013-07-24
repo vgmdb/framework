@@ -1,0 +1,32 @@
+# The layout service enhances the view system with layouts configurable through YAML.
+
+services:
+    layout:
+        provider: VGMdb\Component\Layout\LayoutServiceProvider
+        debug: %app.debug%
+        cache_dir: %app.cache_dir%/configs
+        cache_class: %app.name%-%app.env%-Layout
+        base_dirs:
+            - %app.base_dir%/app
+        files: Resources/config/layout/*.yml
+        replacements: []
+        data: []
+        default_data:
+            html:
+                lang: %app.locale%
+            header:
+                title: ~
+                metas:
+                    - { charset: "utf-8", content: false }
+                    - { http-equiv: "X-UA-Compatible", content: "IE=edge,chrome=1" }
+                    - { name: "description", content: ~ }
+                    - { name: "keywords", content: ~ }
+                    - { name: "viewport", content: "width=device-width" }
+                styles:
+                    - { href: "/css/lib.css" }
+                scripts:
+                    - { src: "/js/vendor/modernizr.js" }
+            footer:
+                scripts:
+                    - { src: "/js/vendor/require/require.js", data: { name: "main", content: "/js/main" } }
+            base_url: %app.hosts.web.host%

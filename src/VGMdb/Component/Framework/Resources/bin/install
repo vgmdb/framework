@@ -1,0 +1,55 @@
+#!/usr/bin/env php
+<?php
+
+/**
+ * Installs the framework skeleton.
+ *
+ * @author Gigablah <gigablah@vgmdb.net>
+ */
+
+$baseDir = getcwd();
+if (!file_exists($baseDir.'/composer.json')) {
+    echo 'composer.json not found.'.PHP_EOL;
+    exit(1);
+}
+
+if (false === $composer = file_get_contents($baseDir.'/composer.json')) {
+    echo 'Could not read composer.json.'.PHP_EOL;
+    exit(1);
+}
+
+if (null === $config = json_decode($composer, true)) {
+    echo 'Could not parse composer.json.'.PHP_EOL;
+    exit(1);
+}
+
+if (!isset($config['extra'])) {
+    echo 'composer.json is missing the "extra" section.'.PHP_EOL;
+    exit(1);
+}
+
+if (!isset($config['extra']['app-dir'])) {
+    echo 'composer.json is missing the "app-dir" value.'.PHP_EOL;
+    exit(1);
+}
+
+if (!isset($config['extra']['web-dir'])) {
+    echo 'composer.json is missing the "web-dir" value.'.PHP_EOL;
+    exit(1);
+}
+
+$appDir = $baseDir.'/'.$config['extra']['app-dir'];
+$webDir = $baseDir.'/'.$config['extra']['web-dir'];
+$srcDir = $baseDir.'/vendor/vgmdb/common/src/VGMdb/Component/Framework/Resources/skeleton';
+
+copy($srcDir.'/app/app.php', $appDir.'/app.php');
+copy($srcDir.'/app/bootstrap.php', $appDir.'/bootstrap.php');
+copy($srcDir.'/app/check.php', $appDir.'/check.php');
+copy($srcDir.'/app/console', $appDir.'/console');
+
+copy($srcDir.'/public/index.php', $webDir.'/index.php');
+copy($srcDir.'/public/index_test.php', $webDir.'/index_test.php');
+
+chmod($appDir.'/console', 0755);
+
+echo 'Framework skeleton installed.'.PHP_EOL;

@@ -1,0 +1,16 @@
+# Cache abstraction layer. Provides the $app['cache'] service which pools together multiple
+# backend providers with fallback capability.
+
+services:
+    cache:
+        provider: VGMdb\Component\Cache\CacheServiceProvider
+        hosts:
+            memcache.host: %cache.hosts.memcache.host%
+            memcache.port: %cache.hosts.memcache.port%
+            redis.host: %cache.hosts.redis.host%
+            redis.port: %cache.hosts.redis.port%
+        pools:
+            debug:
+                drivers: [ ephemeral ]
+            local:
+                drivers: [ apc, filesystem ]

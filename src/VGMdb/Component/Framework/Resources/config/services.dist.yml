@@ -1,0 +1,24 @@
+imports:
+    - { resource: service/monolog.yml }
+    - { resource: service/session.yml }
+    - { resource: service/routing.yml }
+    - { resource: service/security.yml }
+    - { resource: service/cache.yml }
+    - { resource: service/locale.yml }
+    - { resource: service/translator.yml }
+    - { resource: service/accept.yml }
+    - { resource: service/doctrine.yml }
+    - { resource: service/propel1.yml }
+    - { resource: service/propel.yml }
+    - { resource: service/guzzle.yml }
+    - { resource: service/thrift.yml }
+    - { resource: service/validator.yml }
+    - { resource: service/form.yml }
+    - { resource: service/mustache.yml }
+    - { resource: service/view.yml }
+    - { resource: service/layout.yml }
+    - { resource: service/cors.yml }
+    - { resource: service/swiftmailer.yml }
+    - { resource: service/serializer.yml }
+    - { resource: service/queue.yml }
+    - { resource: service/elastica.yml }

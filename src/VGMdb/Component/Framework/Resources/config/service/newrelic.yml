@@ -1,0 +1,9 @@
+# New Relic application performance monitoring.
+
+services:
+    newrelic:
+        provider: VGMdb\Component\NewRelic\NewRelicServiceProvider
+        api_key: %newrelic.api_key%
+        api_host: https://api.newrelic.com
+        apps:
+            vgmdb: %newrelic.apps.web%

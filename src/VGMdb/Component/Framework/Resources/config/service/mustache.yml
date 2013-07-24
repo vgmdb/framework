@@ -1,0 +1,9 @@
+# The Mustache templating service provides the $app['mustache'] rendering engine.
+
+services:
+    mustache:
+        provider: VGMdb\Component\Mustache\MustacheServiceProvider
+        template_dir: %app.base_dir%/public
+        cache_dir: %app.cache_dir%/views
+        extension: .ms
+        helpers: []

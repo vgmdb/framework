@@ -1,0 +1,7 @@
+# Data validation service.
+
+services:
+    validator:
+        provider: VGMdb\Component\Validator\ValidatorServiceProvider
+        base_dir: %app.base_dir%/app/Resources/config/validation
+        cache_dir: %app.cache_dir%/metadata

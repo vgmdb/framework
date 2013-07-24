@@ -1,0 +1,14 @@
+# The locale service provides wrapper services for the PHP intl extension, which exposes an API
+# for date, time, number and currency formatting. It also maps the locale attribute from generic
+# language codes to more specific script and region codes, and stores it in the request context.
+#
+# This service does not provide translations; refer to TranslationServiceProvider.
+
+services:
+    locale:
+        provider: VGMdb\Component\Locale\LocaleServiceProvider
+        mapping: { en: en_US, ja: ja_JP, zh: zh_Hans_CN }
+        formats:
+            date:     { en: "MMM dd, yyyy" }
+            currency: { en: "#,##0" }
+        timezones: []

@@ -1,0 +1,6 @@
+parameters:
+    assetic.auto_dump_assets: true
+
+    propel.connection_class: VGMdb\Component\Propel\Connection\ProfilerConnectionWrapper
+
+    propel1.connection_class: DebugPDO
