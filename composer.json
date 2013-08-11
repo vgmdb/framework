@@ -1,0 +1,17 @@
+{
+    "name": "vgmdb/framework",
+    "description": "VGMdb core framework",
+    "keywords": [],
+    "homepage": "http://vgmdb.net",
+    "authors": [
+        {
+            "name": "Gigablah",
+            "email": "gigablah@vgmdb.net"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "VGMdb\\Component\\Framework": "src/"
+        }
+    }
+}
