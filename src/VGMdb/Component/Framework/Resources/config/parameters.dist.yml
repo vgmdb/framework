@@ -9,6 +9,7 @@ parameters:
     locale.locale_fallback: en
 
     assetic.auto_dump_assets: false
+    assetic.java_path: /usr/bin/java
 
     propel.connection_class: ~
 

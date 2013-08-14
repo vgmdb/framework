@@ -18,3 +18,4 @@ services:
             yui_js:
                 - Assetic\Filter\Yui\JsCompressorFilter
                 - [ %app.base_dir%/vendor/nervo/yuicompressor/yuicompressor.jar, %assetic.java_path% ]
+        formulae: []

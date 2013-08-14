@@ -14,3 +14,7 @@ app.database:
 
 # overrides
 app.databases: []
+#    vgmdb.dev:
+#        dbname:   vgmdev
+#        user:     test
+#        password: test
